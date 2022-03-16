@@ -1,26 +1,44 @@
 package xyz.crazyh.forgetweaker;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.client.settings.KeyConflictContext;
+import net.minecraftforge.client.settings.KeyModifier;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.lwjgl.input.Keyboard;
+import xyz.crazyh.forgetweaker.eventlistener.AntiGhostEventListener;
+import xyz.crazyh.forgetweaker.eventlistener.AutoDropContainerEventListenter;
+import xyz.crazyh.forgetweaker.eventlistener.RefreshInventoryEventListener;
 
 @Mod(
         modid = ForgeTweaker.MOD_ID,
         name = ForgeTweaker.MOD_NAME,
-        version = ForgeTweaker.VERSION
+        version = ForgeTweaker.VERSION,
+        guiFactory = ForgeTweaker.GUI_FACTORY
 )
 public class ForgeTweaker {
 
-    public static final String MOD_ID = "ForgeTweaker";
+    public static final String MOD_ID = "forgetweaker";
     public static final String MOD_NAME = "ForgeTweaker";
     public static final String VERSION = "0.0.1";
+    public static final String GUI_FACTORY = "xyz.crazyh.forgetweaker.config.ForgeTweakerConfigFactory";
 
+    //===== Key Binds =====//
+
+    public static final KeyBinding clearGhostBlockKB = new KeyBinding("Clear Ghost Blocks",
+            KeyConflictContext.IN_GAME, KeyModifier.NONE, Keyboard.KEY_G, MOD_NAME);
+
+    public static final KeyBinding refreshInventoryKB = new KeyBinding("Refresh Inventory",
+            KeyConflictContext.IN_GAME, KeyModifier.NONE, Keyboard.KEY_G, MOD_NAME);
+
+    public static final KeyBinding autoDropContainerToggleKB = new KeyBinding("Auto Drop Container Toggle",
+            KeyConflictContext.IN_GAME, KeyModifier.SHIFT, Keyboard.KEY_SEMICOLON, MOD_NAME);
+
+    //===== Key Binds End =====//
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
      */
@@ -41,6 +59,16 @@ public class ForgeTweaker {
      */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        //reg event listeners
+        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new AutoDropContainerEventListenter());
+        MinecraftForge.EVENT_BUS.register(new AntiGhostEventListener());
+        MinecraftForge.EVENT_BUS.register(new RefreshInventoryEventListener());
+
+        //reg key binds
+        ClientRegistry.registerKeyBinding(autoDropContainerToggleKB);
+        ClientRegistry.registerKeyBinding(clearGhostBlockKB);
+        ClientRegistry.registerKeyBinding(refreshInventoryKB);
 
     }
 
@@ -52,62 +80,4 @@ public class ForgeTweaker {
 
     }
 
-    /**
-     * Forge will automatically look up and bind blocks to the fields in this class
-     * based on their registry name.
-     */
-    @GameRegistry.ObjectHolder(MOD_ID)
-    public static class Blocks {
-      /*
-          public static final MySpecialBlock mySpecialBlock = null; // placeholder for special block below
-      */
-    }
-
-    /**
-     * Forge will automatically look up and bind items to the fields in this class
-     * based on their registry name.
-     */
-    @GameRegistry.ObjectHolder(MOD_ID)
-    public static class Items {
-      /*
-          public static final ItemBlock mySpecialBlock = null; // itemblock for the block above
-          public static final MySpecialItem mySpecialItem = null; // placeholder for special item below
-      */
-    }
-
-    /**
-     * This is a special class that listens to registry events, to allow creation of mod blocks and items at the proper time.
-     */
-    @Mod.EventBusSubscriber
-    public static class ObjectRegistryHandler {
-        /**
-         * Listen for the register event for creating custom items
-         */
-        @SubscribeEvent
-        public static void addItems(RegistryEvent.Register<Item> event) {
-           /*
-             event.getRegistry().register(new ItemBlock(Blocks.myBlock).setRegistryName(MOD_ID, "myBlock"));
-             event.getRegistry().register(new MySpecialItem().setRegistryName(MOD_ID, "mySpecialItem"));
-            */
-        }
-
-        /**
-         * Listen for the register event for creating custom blocks
-         */
-        @SubscribeEvent
-        public static void addBlocks(RegistryEvent.Register<Block> event) {
-           /*
-             event.getRegistry().register(new MySpecialBlock().setRegistryName(MOD_ID, "mySpecialBlock"));
-            */
-        }
-    }
-    /* EXAMPLE ITEM AND BLOCK - you probably want these in separate files
-    public static class MySpecialItem extends Item {
-
-    }
-
-    public static class MySpecialBlock extends Block {
-
-    }
-    */
 }
