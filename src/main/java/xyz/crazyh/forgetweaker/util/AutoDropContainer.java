@@ -1,18 +1,27 @@
 package xyz.crazyh.forgetweaker.util;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.gui.inventory.GuiShulkerBox;
 import net.minecraft.inventory.ClickType;
-import net.minecraft.inventory.ContainerShulkerBox;
-import net.minecraftforge.event.entity.player.PlayerContainerEvent;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.event.GuiContainerEvent;
 
 public class AutoDropContainer {
-    public static void dropShulkerBox (PlayerContainerEvent.Open event) {
-        if (event.getContainer().getClass().equals(ContainerShulkerBox.class)) {
+    public static void dropShulkerBox (GuiContainerEvent event) {
+        if (event.getGuiContainer().getClass().equals(GuiShulkerBox.class)) {
             Minecraft minecraft = Minecraft.getMinecraft();
+            EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
 
             for (int i = 0; i < 27; i++) {
-                minecraft.playerController.windowClick(event.getContainer().windowId, i, 1, ClickType.THROW, event.getEntityPlayer());
+                ItemStack itemstack = event.getGuiContainer().inventorySlots.getInventory().get(i);
+                int winId = event.getGuiContainer().inventorySlots.windowId;
+
+                if (!itemstack.isEmpty()){
+                    minecraft.playerController.windowClick(winId, i, 1, ClickType.THROW, playerSP);
+                }
             }
+            playerSP.closeScreen();
         }
     }
 
