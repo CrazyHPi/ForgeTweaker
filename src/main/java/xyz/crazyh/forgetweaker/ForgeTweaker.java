@@ -31,10 +31,12 @@ public class ForgeTweaker {
     //===== Key Binds =====//
 
     public static final KeyBinding clearGhostBlockKB = new KeyBinding("Clear Ghost Blocks",
-            KeyConflictContext.IN_GAME, KeyModifier.NONE, Keyboard.KEY_G, MOD_NAME);
+            //KeyConflictContext.IN_GAME, KeyModifier.NONE,
+            Keyboard.KEY_G, MOD_NAME);
 
     public static final KeyBinding refreshInventoryKB = new KeyBinding("Refresh Inventory",
-            KeyConflictContext.IN_GAME, KeyModifier.NONE, Keyboard.KEY_G, MOD_NAME);
+            //KeyConflictContext.IN_GAME, KeyModifier.NONE,
+            Keyboard.KEY_H, MOD_NAME);
 
     public static final KeyBinding autoDropContainerToggleKB = new KeyBinding("Auto Drop Container Toggle",
             KeyConflictContext.IN_GAME, KeyModifier.SHIFT, Keyboard.KEY_SEMICOLON, MOD_NAME);
@@ -78,7 +80,6 @@ public class ForgeTweaker {
      */
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-
     }
 
 }

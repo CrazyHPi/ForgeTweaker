@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import xyz.crazyh.forgetweaker.ForgeTweaker;
 import xyz.crazyh.forgetweaker.config.ForgeTweakerConfig;
+import xyz.crazyh.forgetweaker.util.AntiGhostBlock;
 import xyz.crazyh.forgetweaker.util.RefreshInventory;
 
 public class RefreshInventoryEventListener {
@@ -15,13 +16,14 @@ public class RefreshInventoryEventListener {
 
     //manual trigger
     @SubscribeEvent
-    public void onInputKeyInput(InputEvent.KeyInputEvent event) {
+    public void onInputKeyInput(final InputEvent.KeyInputEvent event) {
         EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
 
         if (ForgeTweaker.refreshInventoryKB.isPressed()) {
             RefreshInventory.refreshInv(playerSP);
             playerSP.sendMessage(new TextComponentString("refreshing inventory"));
         }
+
     }
 
     //auto trigger
@@ -34,6 +36,7 @@ public class RefreshInventoryEventListener {
 
                 if (tickCounter > ForgeTweakerConfig.autoRefreshInventoryInterval) {
                     RefreshInventory.refreshInv(playerSP);
+                    tickCounter = 0;
                 }
             }
         }
