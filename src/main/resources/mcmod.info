@@ -2,7 +2,7 @@
     {
         "modid": "forgetweaker",
         "name": "ForgeTweaker",
-        "description": "A tool contain some tweaks",
+        "description": "Add some more client tweaks",
         "version": "${version}",
         "mcversion": "${mcversion}",
         "url": "",

@@ -133,3 +133,17 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.mcversion
+
+//    // replace stuff in mcmod.info, nothing else
+//    from(sourceSets.main.resources.srcDirs) {
+//        include 'mcmod.info'
+//
+//        // replace version and mcversion
+//        expand 'version': project.version, 'mcversion': project.mcversion
+//    }
+
+}
