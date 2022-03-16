@@ -1,0 +1,16 @@
+[
+    {
+        "modid": "ForgeTweaker",
+        "name": "ForgeTweaker",
+        "description": "A tool contain some tweaks",
+        "version": "${version}",
+        "mcversion": "${mcversion}",
+        "url": "",
+        "updateUrl": "",
+        "authorList": ["CrazyH"],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]
