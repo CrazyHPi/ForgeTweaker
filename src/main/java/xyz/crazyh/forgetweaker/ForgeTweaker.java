@@ -18,7 +18,8 @@ import xyz.crazyh.forgetweaker.eventlistener.RefreshInventoryEventListener;
         modid = ForgeTweaker.MOD_ID,
         name = ForgeTweaker.MOD_NAME,
         version = ForgeTweaker.VERSION,
-        guiFactory = ForgeTweaker.GUI_FACTORY
+        guiFactory = ForgeTweaker.GUI_FACTORY,
+        useMetadata = true
 )
 public class ForgeTweaker {
 

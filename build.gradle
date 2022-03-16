@@ -9,10 +9,11 @@ buildscript {
     }
 }
 
+ext.configFile = file "build.properties"
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'xyz.crazyh'
-version = '0.0.1'
+version = '0.0.2'
 
 java {
     archivesBaseName = 'ForgeTweaker'

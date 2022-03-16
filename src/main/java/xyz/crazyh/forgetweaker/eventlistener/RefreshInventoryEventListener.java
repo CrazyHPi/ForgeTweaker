@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import xyz.crazyh.forgetweaker.ForgeTweaker;
 import xyz.crazyh.forgetweaker.config.ForgeTweakerConfig;
-import xyz.crazyh.forgetweaker.util.AntiGhostBlock;
 import xyz.crazyh.forgetweaker.util.RefreshInventory;
 
 public class RefreshInventoryEventListener {
