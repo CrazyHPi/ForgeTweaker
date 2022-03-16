@@ -20,7 +20,7 @@ public class RefreshInventoryEventListener {
 
         if (ForgeTweaker.refreshInventoryKB.isPressed()) {
             RefreshInventory.refreshInv(playerSP);
-            playerSP.sendMessage(new TextComponentString("clearing ghost blocks around you"));
+            playerSP.sendMessage(new TextComponentString("refreshing inventory"));
         }
     }
 
