@@ -9,7 +9,7 @@ import xyz.crazyh.forgetweaker.ForgeTweaker;
 
 import java.util.Set;
 
-public class ForgeTweakerConfigFactory implements IModGuiFactory {
+public class ForgeTweakerConfigGuiFactory implements IModGuiFactory {
     /**
      * Called when instantiated to initialize with the active minecraft instance.
      *

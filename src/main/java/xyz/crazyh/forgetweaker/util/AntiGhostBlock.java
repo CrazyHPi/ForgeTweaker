@@ -24,7 +24,7 @@ public class AntiGhostBlock {
             for (int j = -range; j <= range ; j++) {
                 for (int k = -range; k <=range ; k++) {
                     CPacketPlayerDigging packet= new CPacketPlayerDigging(
-                            CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK,
+                            CPacketPlayerDigging.Action.ABORT_DESTROY_BLOCK,
                             new BlockPos(pos.getX() + i, pos.getY() + j, pos.getZ() + k),
                             EnumFacing.UP
                     );

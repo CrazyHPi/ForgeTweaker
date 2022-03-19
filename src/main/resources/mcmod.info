@@ -12,6 +12,6 @@
         "logoFile": "",
         "screenshots": [],
         "dependencies": [],
-        "guiFactory": "xyz.crazyh.forgetweaker.config.ForgeTweakerConfigFactory"
+        "guiFactory": "xyz.crazyh.forgetweaker.config.ForgeTweakerConfigGuiFactory"
     }
 ]
