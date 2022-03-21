@@ -1,0 +1,8 @@
+{
+  "package": "xyz.crazyh.forgetweaker.mixin",
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+
+  ]
+}
