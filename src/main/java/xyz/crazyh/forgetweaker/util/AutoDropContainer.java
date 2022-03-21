@@ -9,7 +9,7 @@ import net.minecraftforge.client.event.GuiContainerEvent;
 
 public class AutoDropContainer {
     public static void dropShulkerBox (GuiContainerEvent event) {
-        if (event.getGuiContainer().getClass().equals(GuiShulkerBox.class)) {
+        if (event.getGuiContainer() instanceof GuiShulkerBox) {
             Minecraft minecraft = Minecraft.getMinecraft();
             EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
 
