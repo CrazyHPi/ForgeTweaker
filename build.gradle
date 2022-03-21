@@ -10,22 +10,21 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT' //mixin
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 
 ext.configFile = file "build.properties"
 
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.spongepowered.mixin' //mixin
+apply plugin: 'org.spongepowered.mixin'
+//apply plugin: 'eclipse'
 
 group = 'xyz.crazyh'
 version = project.version
+archivesBaseName = project.mod_id
 
-java {
-    archivesBaseName = 'ForgeTweaker'
-    toolchain.languageVersion = JavaLanguageVersion.of(8)
-}
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
     // The mappings can be changed at any time and must be in the following format.
@@ -90,13 +89,6 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
-
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    // flatDir {
-    //     dir 'libs'
-    // }
     maven { url = 'https://repo.spongepowered.org/maven' }
 }
 
@@ -104,7 +96,6 @@ configurations {
     embed
     compile.extendsFrom(embed)
 }
-
 
 dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
@@ -133,11 +124,23 @@ dependencies {
 }
 
 mixin {
-    add sourceSets.main, mod_mixin_refmap.replace('${mod_id}', mod_id)
+    add sourceSets.main, mod_mixin_refmap
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
+    from {
+        configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "LICENSE.txt", "META-INF/MANIFSET.MF", "META-INF/maven/**", "META-INF/*.RSA", "META-INF/*.SF"
+    }
+
+    manifest {
+        attributes 'TweakClass' : 'org.spongepowered.asm.launch.MixinTweaker'
+        attributes "TweakOrder": "0"
+        attributes "MixinConfigs": "mixins.forgetweaker.json"
+    }
+
     manifest {
         attributes([
                 "Specification-Title"     : "forgetweaker",
@@ -150,15 +153,6 @@ jar {
         ])
     }
 
-    from {
-        configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
-    } {
-        exclude "LICENSE.txt", "META-INF/MANIFSET.MF", "META-INF/maven/**", "META-INF/*.RSA", "META-INF/*.SF"
-    }
-
-    manifest.attributes(
-            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker'
-    )
 }
 
 jar.finalizedBy('reobfJar')
