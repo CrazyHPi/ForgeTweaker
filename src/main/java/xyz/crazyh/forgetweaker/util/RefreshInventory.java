@@ -17,13 +17,13 @@ public class RefreshInventory {
         NetHandlerPlayClient client = minecraft.getConnection();
 
         if (client != null && playerSP != null) {
-            ItemStack itemStack = new ItemStack(Items.APPLE);
+            ItemStack itemStack = new ItemStack(Items.GOLDEN_APPLE);
             itemStack.getOrCreateSubCompound("resync").setDouble("resync", Double.NaN);
             client.sendPacket(new CPacketClickWindow(
                     playerSP.inventoryContainer.windowId,
                     -999,
                     2,
-                    ClickType.QUICK_CRAFT,
+                    ClickType.QUICK_MOVE,
                     itemStack,
                     playerSP.inventoryContainer.getNextTransactionID(playerSP.inventory)
             ));
