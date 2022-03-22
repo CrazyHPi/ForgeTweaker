@@ -1,8 +1,12 @@
 {
-  "package": "xyz.crazyh.forgetweaker.mixin",
   "required": true,
+  "package": "xyz.crazyh.forgetweaker.mixin",
+  "refmap": "mixins.forgetweaker.refmap.json",
+  "minVersion": "0.7",
   "compatibilityLevel": "JAVA_8",
   "client": [
-
-  ]
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
