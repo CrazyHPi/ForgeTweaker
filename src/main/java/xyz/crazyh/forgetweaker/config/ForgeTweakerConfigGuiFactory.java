@@ -53,7 +53,7 @@ public class ForgeTweakerConfigGuiFactory implements IModGuiFactory {
     @Override
     public GuiScreen createConfigGui(GuiScreen parentScreen) {
         return new GuiConfig(parentScreen,
-                ConfigElement.from(ForgeTweakerConfig.class).getChildElements(),
+                ConfigElement.from(Configs.class).getChildElements(),
                 ForgeTweaker.MOD_ID,
                 false,
                 false,

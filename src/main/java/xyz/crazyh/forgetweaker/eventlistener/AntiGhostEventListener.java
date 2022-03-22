@@ -7,9 +7,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import xyz.crazyh.forgetweaker.ForgeTweaker;
-import xyz.crazyh.forgetweaker.config.ForgeTweakerConfig;
+import xyz.crazyh.forgetweaker.config.Configs;
 import xyz.crazyh.forgetweaker.util.AntiGhostBlock;
-import xyz.crazyh.forgetweaker.util.RefreshInventory;
 
 public class AntiGhostEventListener {
     private int tickCounter;
@@ -29,11 +28,11 @@ public class AntiGhostEventListener {
     @SubscribeEvent
     public void onTickClientTick(TickEvent.ClientTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
-            if (ForgeTweakerConfig.autoClearGhostBlockFlag) {
+            if (Configs.autoClearStuff.autoClearGhostBlockFlag) {
                 EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
                 tickCounter++;
 
-                if (tickCounter > ForgeTweakerConfig.autoClearGhostBlockInterval) {
+                if (tickCounter > Configs.autoClearStuff.autoClearGhostBlockInterval) {
                     AntiGhostBlock.clearGhostBlock(playerSP);
                     tickCounter = 0;
                 }
