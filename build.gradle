@@ -3,7 +3,7 @@ buildscript {
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://files.minecraftforge.net/maven' }
         maven { url = "https://repo.spongepowered.org/maven" }
-        jcenter()
+        //jcenter()
         mavenCentral()
     }
     dependencies {
@@ -161,16 +161,15 @@ jar.finalizedBy('reobfJar')
 
 processResources {
     inputs.property "version", project.version
-    inputs.property "mcversion", project.mcversion
+    inputs.property "mcversion", project.mc_version
 
-//    from(sourceSets.main.resources.srcDirs) {
-//        include 'mcmod.info'
-//
-//        expand 'version': project.version
-//    }
-//
-//    from(sourceSets.main.resources.srcDirs) {
-//        exclude 'mcmod.info'
-//    }
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.mc_version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
 
 }
