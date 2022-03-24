@@ -10,9 +10,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.lwjgl.input.Keyboard;
-import xyz.crazyh.forgetweaker.eventlistener.AntiGhostEventListener;
-import xyz.crazyh.forgetweaker.eventlistener.AutoDropContainerEventListenter;
-import xyz.crazyh.forgetweaker.eventlistener.RefreshInventoryEventListener;
+import org.lwjgl.opengl.Display;
+import xyz.crazyh.forgetweaker.config.Configs;
+import xyz.crazyh.forgetweaker.eventlistener.*;
 
 @Mod(
         modid = ForgeTweaker.MOD_ID,
@@ -41,6 +41,9 @@ public class ForgeTweaker {
     public static final KeyBinding autoDropContainerToggleKB = new KeyBinding("Auto Drop Container Toggle",
             KeyConflictContext.IN_GAME, KeyModifier.SHIFT, Keyboard.KEY_SEMICOLON, MOD_NAME);
 
+    public static final KeyBinding openConfigGui = new KeyBinding("Open Config GUI",
+            Keyboard.KEY_END, MOD_NAME);
+
     //===== Key Binds End =====//
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
@@ -67,6 +70,8 @@ public class ForgeTweaker {
         MinecraftForge.EVENT_BUS.register(new AutoDropContainerEventListenter());
         MinecraftForge.EVENT_BUS.register(new AntiGhostEventListener());
         MinecraftForge.EVENT_BUS.register(new RefreshInventoryEventListener());
+        MinecraftForge.EVENT_BUS.register(new CustomTitleEventListener());
+        MinecraftForge.EVENT_BUS.register(new OpenConfigGuiEventListenter());
 
         //reg key binds
         ClientRegistry.registerKeyBinding(autoDropContainerToggleKB);
@@ -80,6 +85,7 @@ public class ForgeTweaker {
      */
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
+        Display.setTitle(Configs.customTitle);
     }
 
 }

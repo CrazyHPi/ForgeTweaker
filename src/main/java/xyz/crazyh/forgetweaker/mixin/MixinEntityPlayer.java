@@ -22,7 +22,7 @@ public abstract class MixinEntityPlayer extends Entity {
             cancellable = true
     )
     private void onSetInWeb(CallbackInfo ci) {
-        if (Configs.diaablePlayerSlowDown) {
+        if (Configs.disablePlayerSlowDown) {
             this.fallDistance = 0.0F;
             ci.cancel();
         }

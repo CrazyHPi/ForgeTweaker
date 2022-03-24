@@ -6,10 +6,10 @@
   "compatibilityLevel": "JAVA_8",
   "client": [
     "MixinEntityPlayer",
-    "MixinMinecraft",
     "MixinEntityPlayerSP",
     "MixinBlockSoulSand",
-    "MixinBlockSlime"
+    "MixinBlockSlime",
+    "MixinEntityLivingBase"
   ],
   "injectors": {
     "defaultRequire": 1

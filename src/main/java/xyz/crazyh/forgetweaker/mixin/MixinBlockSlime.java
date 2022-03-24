@@ -15,6 +15,7 @@ import xyz.crazyh.forgetweaker.config.Configs;
 
 @Mixin(BlockSlime.class)
 public abstract class MixinBlockSlime extends BlockBreakable {
+
     protected MixinBlockSlime(Material materialIn, boolean ignoreSimilarityIn) {
         super(materialIn, ignoreSimilarityIn);
     }
@@ -25,19 +26,10 @@ public abstract class MixinBlockSlime extends BlockBreakable {
             cancellable = true
     )
     private void playerNoSlowDown(World worldIn, BlockPos pos, Entity entityIn, CallbackInfo ci) {
-        if (entityIn instanceof EntityPlayerSP && Configs.diaablePlayerSlowDown) {
+        if (entityIn instanceof EntityPlayerSP && Configs.disablePlayerSlowDown) {
             super.onEntityWalk(worldIn, pos, entityIn);
             ci.cancel();
         }
     }
 
-    @Inject(
-            method = "<init>",
-            at = @At("TAIL")
-    )
-    private void slimeNoSlipperiness(CallbackInfo ci) {
-        if (Configs.diaablePlayerSlowDown) {
-            this.slipperiness = 0.6F;
-        }
-    }
 }

@@ -28,7 +28,7 @@ public abstract class MixinEntityPlayerSP extends EntityLivingBase {
             )
     )
     private boolean isUsingItem(EntityPlayerSP playerSP) {
-        if (Configs.diaablePlayerSlowDown) {
+        if (Configs.disablePlayerSlowDown) {
             return false;
         }
         return this.handActive;

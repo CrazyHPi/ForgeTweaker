@@ -8,11 +8,11 @@ public class Configs {
 
     @Config.Name("disable Player Slow Down")
     @Config.Comment("player won't be slowed down by soulsand, web, etc.")
-    public static boolean diaablePlayerSlowDown = false;
+    public static boolean disablePlayerSlowDown = false;
 
     @Config.Name("custom Minecraft Title")
     @Config.Comment("you can set your own title rather than Minecraft 1.12.2")
-    public static String customTitle = "Minecraft 1.12.2 with ForgeTweaker";
+    public static String customTitle = "Minecraft 1.12.2";
 
     public static AutoClear autoClearStuff = new AutoClear();
     public static AutoProcessContainer autoProcessContainer = new AutoProcessContainer();

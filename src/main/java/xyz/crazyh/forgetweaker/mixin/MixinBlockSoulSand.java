@@ -20,7 +20,7 @@ public class MixinBlockSoulSand {
             cancellable = true
     )
     private void onPlayerWalk(World worldIn, BlockPos pos, IBlockState state, Entity entityIn, CallbackInfo ci) {
-        if (entityIn instanceof EntityPlayerSP && Configs.diaablePlayerSlowDown) {
+        if (Configs.disablePlayerSlowDown && entityIn instanceof EntityPlayerSP) {
             ci.cancel();
         }
     }
