@@ -20,7 +20,6 @@ public class MixinEntityLivingBase {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/block/Block;getSlipperiness(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;)F"
-
             )
     )
     private float slimeNotSlip(Block instance, IBlockState state, IBlockAccess world, BlockPos pos, Entity entity){

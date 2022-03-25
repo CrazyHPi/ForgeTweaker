@@ -9,7 +9,8 @@
     "MixinEntityPlayerSP",
     "MixinBlockSoulSand",
     "MixinBlockSlime",
-    "MixinEntityLivingBase"
+    "MixinEntityLivingBase",
+    "MixinWorld"
   ],
   "injectors": {
     "defaultRequire": 1

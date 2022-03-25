@@ -14,6 +14,10 @@ public class Configs {
     @Config.Comment("you can set your own title rather than Minecraft 1.12.2")
     public static String customTitle = "Minecraft 1.12.2";
 
+    @Config.Name("place Ignore Entity")
+    @Config.Comment("remove entity collision check when placing a block")
+    public static boolean placeIgnoreEntity = false;
+
     public static AutoClear autoClearStuff = new AutoClear();
     public static AutoProcessContainer autoProcessContainer = new AutoProcessContainer();
 
