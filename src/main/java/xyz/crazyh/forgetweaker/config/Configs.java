@@ -18,6 +18,11 @@ public class Configs {
     @Config.Comment("remove entity collision check when placing a block")
     public static boolean placeIgnoreEntity = false;
 
+    @Config.Name("auto Respawn")
+    @Config.Comment("auto respawn when you die")
+    public static boolean autoRespawn = false;
+
+    //sub cats
     public static AutoClear autoClearStuff = new AutoClear();
     public static AutoProcessContainer autoProcessContainer = new AutoProcessContainer();
 

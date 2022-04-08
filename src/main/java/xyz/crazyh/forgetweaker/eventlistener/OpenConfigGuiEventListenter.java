@@ -3,6 +3,7 @@ package xyz.crazyh.forgetweaker.eventlistener;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraftforge.common.config.ConfigElement;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
@@ -24,7 +25,6 @@ public class OpenConfigGuiEventListenter {
                     ForgeTweaker.MOD_NAME
                     )
             );
-
         }
     }
 }

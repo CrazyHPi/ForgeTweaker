@@ -10,7 +10,8 @@
     "MixinBlockSoulSand",
     "MixinBlockSlime",
     "MixinEntityLivingBase",
-    "MixinWorld"
+    "MixinWorld",
+    "MixinItemBlock"
   ],
   "injectors": {
     "defaultRequire": 1
