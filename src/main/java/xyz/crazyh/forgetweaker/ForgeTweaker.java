@@ -72,7 +72,7 @@ public class ForgeTweaker {
         MinecraftForge.EVENT_BUS.register(new RefreshInventoryEventListener());
         MinecraftForge.EVENT_BUS.register(new CustomTitleEventListener());
         MinecraftForge.EVENT_BUS.register(new OpenConfigGuiEventListenter());
-        MinecraftForge.EVENT_BUS.register(new AutoRespawnEventListenter());
+        MinecraftForge.EVENT_BUS.register(new AutoRespawnEventListener());
 
         //reg key binds
         ClientRegistry.registerKeyBinding(autoDropContainerToggleKB);
