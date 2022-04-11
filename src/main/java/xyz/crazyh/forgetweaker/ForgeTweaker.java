@@ -29,7 +29,6 @@ public class ForgeTweaker {
     public static final String GUI_FACTORY = "xyz.crazyh.forgetweaker.config.ForgeTweakerConfigGuiFactory";
 
     //===== Key Binds =====//
-
     public static final KeyBinding clearGhostBlockKB = new KeyBinding("Clear Ghost Blocks",
             //KeyConflictContext.IN_GAME, KeyModifier.NONE,
             Keyboard.KEY_G, MOD_NAME);
@@ -43,8 +42,8 @@ public class ForgeTweaker {
 
     public static final KeyBinding openConfigGui = new KeyBinding("Open Config GUI",
             Keyboard.KEY_END, MOD_NAME);
-
     //===== Key Binds End =====//
+
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
      */
@@ -78,6 +77,7 @@ public class ForgeTweaker {
         ClientRegistry.registerKeyBinding(autoDropContainerToggleKB);
         ClientRegistry.registerKeyBinding(clearGhostBlockKB);
         ClientRegistry.registerKeyBinding(refreshInventoryKB);
+        ClientRegistry.registerKeyBinding(openConfigGui);
 
     }
 

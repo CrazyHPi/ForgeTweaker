@@ -16,7 +16,7 @@ public class AutoRespawnEventListener {
             Minecraft mc = Minecraft.getMinecraft();
             mc.player.respawnPlayer();
             event.setCanceled(true);
-            mc.player.sendStatusMessage(new TextComponentString("auto respawn after death"), false);
+            mc.player.sendStatusMessage(new TextComponentString("auto respawn after death"), true);
         }
     }
 }
