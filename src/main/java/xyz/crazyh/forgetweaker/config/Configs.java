@@ -22,9 +22,11 @@ public class Configs {
     @Config.Comment("auto respawn when you die")
     public static boolean autoRespawn = false;
 
+
     //sub cats
     public static AutoClear autoClearStuff = new AutoClear();
     public static AutoProcessContainer autoProcessContainer = new AutoProcessContainer();
+    public static BlockBreakingCoolDown blockBreaking = new BlockBreakingCoolDown();
 
     public static class AutoClear {
         @Config.Name("auto Clear Ghost Block Switch")
@@ -59,5 +61,21 @@ public class Configs {
             All
         }
     }
+
+    public static class BlockBreakingCoolDown {
+        @Config.Name("disable Block Breaking Cool Down")
+        @Config.Comment("remove 5gt cool down when mining none instant mining block, so all block cool down should be the same")
+        public boolean disableBlockBreakingCoolDown = false;
+
+        @Config.Name("block Breaking Cool Down Toogle")
+        @Config.Comment("add 2gt cool down even when instant mining")
+        public boolean blockBreakingCoolDownToggle = false;
+
+        @Config.Name("block breaking interval")
+        @Config.Comment("cool down added (in gt) in between breaking two blocks")
+        @Config.RangeInt(min = 1, max = 100)
+        public int blockBreakingCoolDownInterval = 3;
+    }
+
 
 }
