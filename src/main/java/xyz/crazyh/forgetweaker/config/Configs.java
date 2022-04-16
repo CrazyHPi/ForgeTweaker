@@ -24,8 +24,11 @@ public class Configs {
 
 
     //sub cats
+    @Config.Comment("Anti Ghost ++")
     public static AutoClear autoClearStuff = new AutoClear();
+    @Config.Comment("auto fill/drop items from container")
     public static AutoProcessContainer autoProcessContainer = new AutoProcessContainer();
+    @Config.Comment("Add or remove block breaking cool down")
     public static BlockBreakingCoolDown blockBreaking = new BlockBreakingCoolDown();
 
     public static class AutoClear {
