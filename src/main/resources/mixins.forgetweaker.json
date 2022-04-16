@@ -5,13 +5,14 @@
   "minVersion": "0.7",
   "compatibilityLevel": "JAVA_8",
   "client": [
+    "MixinBlockSlime",
+    "MixinBlockSoulSand",
+    "MixinEntityLivingBase",
     "MixinEntityPlayer",
     "MixinEntityPlayerSP",
-    "MixinBlockSoulSand",
-    "MixinBlockSlime",
-    "MixinEntityLivingBase",
-    "MixinWorld",
-    "MixinItemBlock"
+    "MixinItemBlock",
+    "MixinPLayerControllerMP",
+    "MixinWorld"
   ],
   "injectors": {
     "defaultRequire": 1

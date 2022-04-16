@@ -3,6 +3,7 @@ package xyz.crazyh.forgetweaker.util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
@@ -17,7 +18,7 @@ public class RefreshInventory {
         NetHandlerPlayClient client = minecraft.getConnection();
 
         if (client != null && playerSP != null) {
-            ItemStack itemStack = new ItemStack(Items.GOLDEN_APPLE);
+            ItemStack itemStack = new ItemStack(Blocks.BARRIER);
             itemStack.getOrCreateSubCompound("resync").setDouble("resync", Double.NaN);
             client.sendPacket(new CPacketClickWindow(
                     playerSP.inventoryContainer.windowId,

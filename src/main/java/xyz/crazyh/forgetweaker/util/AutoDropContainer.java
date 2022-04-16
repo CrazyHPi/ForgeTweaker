@@ -26,7 +26,7 @@ public class AutoDropContainer {
     }
 
     public static void dropAllContainer(GuiContainerEvent event) {
-        //TODO
+        //TODO dropAllContainer
         if (event.getGuiContainer() instanceof GuiShulkerBox) {
             Minecraft minecraft = Minecraft.getMinecraft();
             EntityPlayerSP playerSP = Minecraft.getMinecraft().player;

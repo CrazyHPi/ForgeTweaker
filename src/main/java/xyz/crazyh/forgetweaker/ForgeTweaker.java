@@ -22,11 +22,19 @@ import xyz.crazyh.forgetweaker.eventlistener.*;
         useMetadata = true
 )
 public class ForgeTweaker {
-
     public static final String MOD_ID = "forgetweaker";
     public static final String MOD_NAME = "ForgeTweaker";
     public static final String VERSION = "3.1.4";
     public static final String GUI_FACTORY = "xyz.crazyh.forgetweaker.config.ForgeTweakerConfigGuiFactory";
+
+    //TODO:
+    // autoFillContainer
+    // make autoDropContainer work with all container(chest, dropper/dispenser, hopper)
+    // maybe better anti ghost block
+    // auto reconnect
+    // some hacks to jump up to fence(1.5 high block) and step up 1 high block without jumping
+    // remove slime block bouncing up players, aka slime == normal block
+
 
     //===== Key Binds =====//
     public static final KeyBinding clearGhostBlockKB = new KeyBinding("Clear Ghost Blocks",
